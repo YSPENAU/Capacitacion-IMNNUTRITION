@@ -1,0 +1,168 @@
+.logistica-intro-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    padding-top: 110px;
+    box-sizing: border-box;
+}
+
+.logistica-intro-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    gap: 2rem;
+}
+
+/* Grid Layout */
+.logistica-intro-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 2rem;
+}
+
+/* Left Column: Title Box */
+.logistica-intro-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logistica-title-box {
+    background-color: #3aabd8;
+    border-radius: 40px;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 6px 20px rgba(58, 171, 216, 0.4);
+    min-width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logistica-title {
+    color: white;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    text-align: center;
+    margin: 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* Right Column: Logo */
+.logistica-intro-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logistica-logo-container {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logistica-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+/* Description & Button wrapper */
+.logistica-description-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 800px;
+}
+
+.logistica-description {
+    text-align: center;
+}
+
+.logistica-description p {
+    font-size: 1.15rem;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Start Button */
+.logistica-start-btn {
+    background-color: #3aabd8;
+    color: white;
+    border: none;
+    padding: 0.9rem 3rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(58, 171, 216, 0.3);
+}
+
+.logistica-start-btn:hover {
+    background-color: #2e9cc4;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(58, 171, 216, 0.4);
+}
+
+/* Chat FAB */
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #3aabd8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 50;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .logistica-intro-grid {
+        flex-direction: column-reverse;
+        /* Logo on top on mobile */
+        gap: 2rem;
+    }
+
+    .logistica-intro-left {
+        justify-content: center;
+    }
+
+    .logistica-intro-right {
+        justify-content: center;
+    }
+
+    .logistica-title {
+        font-size: clamp(1.3rem, 2.8vw, 2rem);
+    }
+
+    .logistica-logo-container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .logistica-description p {
+        font-size: 1rem;
+    }
+}

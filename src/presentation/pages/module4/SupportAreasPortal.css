@@ -1,0 +1,340 @@
+.support-portal-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    padding-top: 110px;
+    box-sizing: border-box;
+}
+
+.support-portal-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    overflow-y: auto;
+}
+
+/* Title Section */
+.portal-title-section {
+    text-align: center;
+}
+
+.portal-main-title {
+    background-color: #3aabd8;
+    color: white;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: 700;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    margin: 0 0 0.5rem 0;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(58, 171, 216, 0.3);
+}
+
+.portal-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Description */
+.portal-description {
+    text-align: center;
+    color: #444;
+    font-size: 1.1rem;
+    max-width: 800px;
+}
+
+/* Modules Grid */
+.support-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 1rem;
+}
+
+/* Module Card */
+.support-module-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #999;
+    /* Fallback for gray background in screenshot for locked items, though we override below */
+}
+
+/* Override background specifically to match the gray card style in screenshot for locked/inactive */
+.support-module-card {
+    background-color: white;
+    /* Default active/white */
+}
+
+.support-module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.support-module-card.active {
+    border-color: #3aabd8;
+    background-color: white;
+}
+
+.support-module-card.completed {
+    border-color: #32cd32;
+    background-color: #e8f8e8;
+}
+
+/* Locked state styling to match screenshot gray card */
+.support-module-card.locked {
+    background-color: #8c8c8c;
+    color: white;
+    /* Text color white on gray background */
+    cursor: not-allowed;
+    border-color: transparent;
+    opacity: 1;
+    /* Keep opacity full to see content clearly */
+}
+
+.support-module-card.locked .module-title {
+    color: #333;
+    /* Wait, in screenshot text is black. Let's keep title dark. */
+}
+
+.support-module-card.locked:hover {
+    transform: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon */
+.module-icon-container {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.module-icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.module-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 2rem 0;
+    height: 3rem;
+    /* Fixed height for alignment */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Button */
+.module-button {
+    background-color: #ccc;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 80%;
+}
+
+.support-module-card.active .module-button {
+    background-color: #3aabd8;
+}
+
+.support-module-card.completed .module-button {
+    background-color: #32cd32;
+}
+
+.support-module-card.locked .module-button {
+    background-color: #777;
+    /* Darker gray button on gray card */
+    cursor: not-allowed;
+}
+
+.support-module-card.active .module-button:hover {
+    background-color: #2e9cc4;
+}
+
+.support-module-card.completed .module-button:hover {
+    background-color: #28a428;
+}
+
+/* Checkmark */
+.module-checkmark {
+    position: absolute;
+    bottom: 80px;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: #32cd32;
+    background: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(50, 205, 50, 0.3);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Completion Section */
+.portal-completion-section {
+    margin-top: 3rem;
+    text-align: center;
+    background: white;
+    padding: 3rem;
+    border-radius: 30px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 3px solid #4caf50;
+}
+
+.completion-title {
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: 800;
+    color: #4caf50;
+    margin-bottom: 1rem;
+}
+
+.completion-message {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.completion-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.portal-dashboard-btn,
+.portal-survey-btn {
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.portal-dashboard-btn {
+    background-color: #3aabd8;
+    color: white;
+}
+
+.portal-dashboard-btn:hover {
+    background-color: #2e9cc4;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(58, 171, 216, 0.4);
+}
+
+.portal-survey-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.portal-survey-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Chat FAB */
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #3aabd8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 50;
+    color: white;
+}
+
+/* Animations */
+@keyframes popIn {
+    from {
+        transform: scale(0) rotate(-45deg);
+    }
+
+    to {
+        transform: scale(1) rotate(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .support-modules-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .module-checkmark {
+        bottom: 70px;
+        width: 50px;
+        height: 50px;
+        font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .completion-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .portal-dashboard-btn,
+    .portal-survey-btn {
+        width: 100%;
+    }
+}

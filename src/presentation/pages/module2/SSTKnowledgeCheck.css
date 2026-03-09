@@ -1,0 +1,222 @@
+.sst-knowledge-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #F0F8FF;
+    /* Very light blue background */
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.sst-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Question Title */
+.sst-question-title {
+    background-color: #2FBCEB;
+    color: white;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 800;
+    text-align: center;
+    padding: 1.5rem 4rem;
+    border-radius: 50px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 15px rgba(47, 188, 235, 0.3);
+    line-height: 1.2;
+    animation: fadeInDown 0.6s ease-out;
+}
+
+/* Options Buttons */
+.sst-options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.sst-option-btn {
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 200px;
+}
+
+.sst-option-btn.primary {
+    background-color: #2FBCEB;
+}
+
+.sst-option-btn.secondary {
+    background-color: #2FBCEB;
+    /* Matching design */
+    opacity: 0.9;
+}
+
+.sst-option-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Explanation View */
+.sst-explanation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.info-card-central {
+    background: white;
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    border: 2px solid #87CEEB;
+    /* Light sky blue border */
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.2);
+}
+
+.info-card-central h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.info-card-central p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.benefit-card {
+    background: white;
+    border: 1px solid #87CEEB;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-circle {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+    /* In a real scenario, this would be an image tag */
+}
+
+.benefit-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.benefit-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Footer Action */
+.action-footer {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 4rem;
+}
+
+.next-btn {
+    background-color: #2FBCEB;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.next-btn:hover {
+    background-color: #25aae0;
+}
+
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #2FBCEB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 100;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* fadeInUp defined globally in index.css */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

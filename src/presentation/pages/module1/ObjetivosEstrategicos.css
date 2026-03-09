@@ -1,0 +1,128 @@
+.objetivos-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #E8E8E8;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    overflow-y: auto;
+}
+
+.objetivos-title-pill {
+    background-color: #2FBCEB;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 800;
+    text-align: center;
+    margin: 2rem auto 2rem auto;
+    width: fit-content;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-wrapper {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.accordion-item {
+    background: white;
+    border: 2px solid #87CEEB;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.accordion-item.open {
+    border-color: #2FBCEB;
+    box-shadow: 0 4px 12px rgba(47, 188, 235, 0.2);
+}
+
+.accordion-header {
+    width: 100%;
+    background: white;
+    border: none;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: left;
+}
+
+.accordion-header:hover {
+    background: #F0F8FF;
+}
+
+.accordion-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.accordion-title {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.accordion-arrow {
+    font-size: 0.9rem;
+    color: #2FBCEB;
+    flex-shrink: 0;
+}
+
+.accordion-content {
+    padding: 0 1.5rem 1.5rem 4.5rem;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.objetivos-footer {
+    margin-top: auto;
+    padding: 1rem 2rem 2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.objetivos-next-btn {
+    background-color: #2FBCEB;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.objetivos-next-btn:hover:not(.disabled) {
+    background-color: #25aae0;
+}
+
+.objetivos-next-btn.disabled {
+    background-color: #9E9E9E;
+    cursor: not-allowed;
+}

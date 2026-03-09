@@ -1,0 +1,322 @@
+/* Container */
+.contabilidad-organigrama-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    padding-top: 110px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.contabilidad-organigrama-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header Box */
+.org-header-box {
+    text-align: center;
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+}
+
+.org-header-box h2 {
+    background-color: #3babc5;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    display: inline-block;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+}
+
+.instruction-text {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin: -2.2rem auto 2rem auto;
+    position: relative;
+    z-index: 3;
+    opacity: 0.95;
+    max-width: 80%;
+}
+
+.description-text {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Chart Card */
+.org-chart-card {
+    background: white;
+    border: 2px solid #3aabd8;
+    border-radius: 30px;
+    padding: 3rem;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    z-index: 10;
+    margin-top: 1rem;
+}
+
+.chart-title {
+    font-size: 1.6rem;
+    color: #333;
+    margin: 0 0 3rem 0;
+    text-align: center;
+    width: 100%;
+    font-weight: 700;
+}
+
+.chart-structure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/* NODES - MAIN CONTAINER */
+.member-node {
+    position: relative;
+    /* Context for overlay */
+    width: 200px;
+    height: 250px;
+    /* Fixed height to contain the full layout */
+    cursor: pointer;
+    perspective: 1000px;
+    /* For 3D effects if we wanted, but we'll stick to fade */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+/* CONTENT CONTAINER */
+.node-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Leader layout: Photo Top, Info Bottom */
+.leader-node .node-content {
+    justify-content: center;
+}
+
+/* Subordinate layout: Info Top, Photo Bottom */
+.subordinate-content {
+    flex-direction: column-reverse;
+    /* Just to reverse the DOM order visually? No, flex-direction column with order or just DOM order */
+    /* Component renders them in correct order already. We just need to align them */
+    justify-content: center;
+}
+
+
+.member-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #3aabd8;
+    background: white;
+    margin-bottom: -25px;
+    z-index: 2;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.subordinate-node .member-photo {
+    margin-bottom: 0;
+    margin-top: -25px;
+}
+
+.member-info {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 2rem 1rem 0.8rem 1rem;
+    text-align: center;
+    width: 180px;
+    min-height: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.subordinate-node .member-info {
+    padding: 0.8rem 1rem 2rem 1rem;
+}
+
+.member-role {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+}
+
+.member-name {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* OVERLAY - The "Hover" State */
+.node-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 220px;
+    /* Slightly wider than the info box */
+    height: auto;
+    min-height: 180px;
+    background-color: #3aabd8;
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(58, 171, 216, 0.4);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+    /* Above content */
+}
+
+.node-overlay p {
+    color: white;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* HOVER EFFECTS */
+.member-node:hover .node-overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 100;
+    /* Bring to very top */
+}
+
+.member-node:hover .node-content {
+    opacity: 0.2;
+    /* Fade out original content slightly */
+    filter: blur(2px);
+}
+
+/* Connectors - Adjusted for fixed Node Height */
+.connector-vertical {
+    width: 2px;
+    height: 30px;
+    background-color: #3aabd8;
+    margin-top: -20px;
+    /* Pull up into the node spacing */
+    margin-bottom: -10px;
+    position: relative;
+    z-index: 0;
+}
+
+.connector-horizontal-bar {
+    width: 80%;
+    height: 2px;
+    background-color: #3aabd8;
+    margin-bottom: 0px;
+}
+
+.level-2 {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0;
+    width: 100%;
+}
+
+.member-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.connector-vertical-small {
+    width: 2px;
+    height: 20px;
+    background-color: #3aabd8;
+    margin-bottom: -20px;
+    /* Pull down into node */
+    position: relative;
+    z-index: 0;
+}
+
+/* Org Footer */
+.org-footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.org-next-btn {
+    background-color: #3aabd8;
+    color: white;
+    border: none;
+    padding: 0.9rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(58, 171, 216, 0.3);
+    transition: all 0.3s ease;
+}
+
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #3aabd8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 50;
+    color: white;
+}

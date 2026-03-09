@@ -1,0 +1,414 @@
+.marketing-organigrama-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    padding-top: 110px;
+    box-sizing: border-box;
+}
+
+.marketing-organigrama-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+.organigrama-header {
+    text-align: center;
+    background-color: #3babc5;
+    color: white;
+    padding: 1.5rem 3rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(59, 171, 197, 0.3);
+}
+
+.organigrama-main-title {
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+}
+
+.organigrama-subtitle {
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.organigrama-description {
+    max-width: 900px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Chart Wrapper */
+.marketing-chart-wrapper {
+    background: white;
+    border: 3px solid #3babc5;
+    border-radius: 30px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 1200px;
+    /* Increased to fit 6 items */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.chart-header-label {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Card Styles */
+.marketing-org-card {
+    background: white;
+    border: 2px solid #3babc5;
+    border-radius: 15px;
+    padding: 1rem;
+    width: 160px;
+    /* Smaller width to fit 6 items in a row */
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    /* For overlay */
+}
+
+.top-card {
+    width: 260px;
+    padding-top: 3rem;
+    margin-top: 3rem;
+    overflow: visible;
+    /* Top card photos pop out */
+}
+
+/* Recover overflow hidden for top card overlay? 
+   Actually, for top cards the photo sticks out. If we use overflow hidden, we clip photo.
+   So for top cards, the overlay must be handled carefully or just be inside the content area.
+   Let's make overlay absolute inside but respect border radius.
+   Wait, if overflow is visible, overlay can spill.
+   Workaround: Put overlay inside a container that is overflow hidden? 
+   Or just accept overlay covers photo section too? 
+   Let's keep it simple: Top cards have overlay inside, blocking content. Photo is outside main box visually but technically inside via CSS positioning?
+   No, photo is absolute top -50px.
+   If we hover, overlay appears.
+*/
+
+.marketing-org-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(59, 171, 197, 0.3);
+    border-color: #2e9cc4;
+}
+
+.org-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    z-index: 1;
+    transition: opacity 0.3s;
+}
+
+.marketing-org-card:hover .org-card-content {
+    opacity: 0;
+    /* Hide content on hover to show overlay */
+}
+
+/* Overlay */
+.org-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(59, 171, 197, 0.95);
+    /* Cyan overlay */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    border-radius: 13px;
+    /* Match card radius minus border */
+    box-sizing: border-box;
+}
+
+.marketing-org-card:hover .org-card-overlay {
+    opacity: 1;
+}
+
+.top-card .org-card-overlay {
+    border-radius: 13px;
+    /* Ensure overlay fits card body */
+    /* top card content starts lower visually because of padding-top? 
+       No, padding-top creates space inside.
+    */
+    top: 0;
+    height: 100%;
+    /* This will cover the card body. The photo sticking out top is separate z-index? */
+}
+
+.top-card:hover .card-photo-container {
+    /* Keep photo visible? Or hide? 
+       If description is long, we might need space. 
+       Let's keep photo visible. 
+    */
+    z-index: 3;
+}
+
+/* Content Styling */
+.card-photo-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #3babc5;
+    background: white;
+    overflow: hidden;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-icon-small {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+}
+
+.card-icon-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.org-card-role {
+    font-weight: 700;
+    color: #333;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+}
+
+.org-card-name {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Chart Layout Levels */
+.chart-level {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.level-top {
+    gap: 4rem;
+    margin-bottom: 2rem;
+}
+
+.level-bottom {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    /* 6 columns */
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.bottom-member-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/* Connectors */
+.hierarchy-connector-complex {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+/* Bridge connects top two cards */
+.connector-bridge {
+    position: absolute;
+    top: 0;
+    left: 35%;
+    /* Adjust based on top card spread */
+    right: 35%;
+    height: 15px;
+    border-bottom: 2px solid #3babc5;
+    border-left: 2px solid #3babc5;
+    border-right: 2px solid #3babc5;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.connector-vertical-main {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background-color: #3babc5;
+    transform: translateX(-50%);
+}
+
+.connector-horizontal-bottom {
+    position: absolute;
+    top: 35px;
+    left: 8%;
+    /* Spans across 6 items */
+    right: 8%;
+    height: 2px;
+    background-color: #3babc5;
+}
+
+.connector-vertical-branches {
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    height: 15px;
+}
+
+.branch {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: #3babc5;
+}
+
+/* Positioning branches for 6 items: 
+   1: ~8.33%
+   2: ~25%
+   3: ~41.66%
+   4: ~58.33%
+   5: ~75%
+   6: ~91.66%
+*/
+.branch-1 {
+    left: 8.35%;
+}
+
+.branch-2 {
+    left: 25%;
+}
+
+.branch-3 {
+    left: 41.65%;
+}
+
+.branch-4 {
+    left: 58.35%;
+}
+
+.branch-5 {
+    left: 75%;
+}
+
+.branch-6 {
+    left: 91.65%;
+}
+
+
+/* Footer */
+.marketing-organigrama-footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 1rem;
+}
+
+.organigrama-next-btn {
+    background-color: #3babc5;
+    color: white;
+    border: none;
+    padding: 0.9rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 171, 197, 0.3);
+}
+
+.organigrama-next-btn:hover {
+    background-color: #2e9cc4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 171, 197, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .level-bottom {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .connector-horizontal-bottom,
+    .branch {
+        display: none;
+        /* Simplify connectors on tablet/mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .level-top {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .level-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .connector-bridge,
+    .connector-vertical-main {
+        display: none;
+    }
+
+    .marketing-org-card {
+        width: 100%;
+        max-width: 250px;
+    }
+}

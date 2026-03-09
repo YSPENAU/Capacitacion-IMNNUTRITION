@@ -1,0 +1,204 @@
+.sgsst-def-container {
+    width: 100%;
+    height: auto;
+    background-color: #F0F8FF;
+    /* Very light blue background */
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.sgsst-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Main Title Pill */
+.sgsst-main-title {
+    background-color: #2FBCEB;
+    color: white;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    text-align: center;
+    padding: 1rem 5rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(47, 188, 235, 0.3);
+    animation: fadeInDown 0.6s ease-out;
+}
+
+/* Subtitle Box */
+.sgsst-subtitle-box {
+    background: white;
+    border: 2px solid #87CEEB;
+    border-radius: 40px;
+    padding: 1.5rem 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(135, 206, 235, 0.2);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.sgsst-subtitle-box p {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Cards Grid */
+.sgsst-cards-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+    margin-bottom: 3rem;
+}
+
+.sgsst-card {
+    background: white;
+    border: 2px solid #87CEEB;
+    border-radius: 25px;
+    padding: 2rem;
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    height: 100%;
+}
+
+.sgsst-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    margin-bottom: 1rem;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sgsst-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.sgsst-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Footer Info Box */
+.sgsst-footer-box {
+    background-color: #2FBCEB;
+    color: white;
+    padding: 2rem 4rem;
+    border-radius: 40px;
+    text-align: center;
+    max-width: 900px;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 20px rgba(47, 188, 235, 0.4);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.sgsst-footer-box p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Footer Action */
+.sgsst-action-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 4rem;
+    margin-bottom: 2rem;
+}
+
+.sgsst-next-btn {
+    background-color: #2FBCEB;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sgsst-next-btn:hover {
+    background-color: #25aae0;
+    transform: translateX(2px);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* fadeInUp defined globally in index.css */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sgsst-main-title {
+        font-size: 1.8rem;
+        padding: 1rem 2rem;
+    }
+
+    .sgsst-subtitle-box p {
+        font-size: 1.2rem;
+    }
+
+    .sgsst-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .sgsst-footer-box {
+        padding: 1.5rem;
+        border-radius: 20px;
+        margin: 0 1rem 2rem 1rem;
+    }
+}

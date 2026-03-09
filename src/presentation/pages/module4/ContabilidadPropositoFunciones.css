@@ -1,0 +1,215 @@
+.contabilidad-proposito-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    padding-top: 110px;
+    box-sizing: border-box;
+}
+
+.contabilidad-proposito-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+/* Main Card */
+.contabilidad-proposito-card {
+    background: white;
+    border: 3px solid #3aabd8;
+    border-radius: 30px;
+    padding: 2.5rem;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.proposito-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.proposito-icon-container {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.proposito-main-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.proposito-text-content {
+    flex: 1;
+}
+
+.proposito-title {
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.proposito-description {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+}
+
+/* Functions Grid */
+.funciones-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+}
+
+.funcion-card {
+    background: white;
+    border: 2px solid #3aabd8;
+    border-radius: 20px;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    justify-content: flex-start;
+}
+
+.funcion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(58, 171, 216, 0.3);
+    background-color: #f0f9fc;
+}
+
+.funcion-icon-container-small {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.funcion-icon-container-small img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.funcion-text {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.funcion-text strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #3aabd8;
+    font-size: 1.1rem;
+}
+
+/* Footer & Button */
+.contabilidad-proposito-footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.proposito-next-btn {
+    background-color: #3aabd8;
+    color: white;
+    border: none;
+    padding: 0.9rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(58, 171, 216, 0.3);
+}
+
+.proposito-next-btn:hover {
+    background-color: #2e9cc4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(58, 171, 216, 0.4);
+}
+
+/* Chat FAB */
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #3aabd8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 50;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .funciones-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .proposito-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .proposito-description {
+        text-align: center;
+    }
+
+    .proposito-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contabilidad-proposito-card {
+        padding: 1.5rem;
+    }
+
+    .funciones-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proposito-icon-container {
+        width: 100px;
+        height: 100px;
+    }
+}

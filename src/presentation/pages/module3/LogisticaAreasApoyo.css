@@ -1,0 +1,320 @@
+.logistica-areas-apoyo-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    padding-top: 110px;
+    box-sizing: border-box;
+}
+
+.logistica-areas-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+/* Title Section */
+.areas-title-section {
+    text-align: center;
+}
+
+.areas-main-title {
+    background-color: #3aabd8;
+    color: white;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: 700;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    margin: 0 0 0.5rem 0;
+    display: inline-block;
+}
+
+.areas-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Diagram Container */
+.areas-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    /* Reduced height as layout is more compact */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* Central Box */
+.central-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #3aabd8 0%, #2e9cc4 100%);
+    color: white;
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: 800;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(58, 171, 216, 0.4);
+    z-index: 5;
+    line-height: 1.2;
+    text-transform: uppercase;
+    min-width: 250px;
+}
+
+/* Support Area Circles */
+.support-area-circle {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #3aabd8;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.support-area-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(58, 171, 216, 0.3);
+    border-color: #2e9cc4;
+}
+
+.support-area-circle.selected {
+    background-color: #b8e6f5;
+    border-color: #2e9cc4;
+    transform: scale(1.1);
+    z-index: 20;
+}
+
+/* Positioning based on corners */
+.support-area-circle.top-left {
+    top: 0;
+    left: 50px;
+}
+
+.support-area-circle.top-right {
+    top: 0;
+    right: 50px;
+}
+
+.support-area-circle.bottom-left {
+    bottom: 0;
+    left: 50px;
+}
+
+.support-area-circle.bottom-right {
+    bottom: 0;
+    right: 50px;
+}
+
+/* Adjustments for selection state to not jump */
+.support-area-circle.selected {
+    /* Transform scale handles size */
+}
+
+
+/* Area Icon and Name */
+.area-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+}
+
+.area-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.area-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Area Description */
+.area-description {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.area-description p {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+
+/* Connection Arrows */
+.connection-arrow {
+    position: absolute;
+    color: #3aabd8;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0.6;
+}
+
+.connection-arrow::before {
+    content: '↘';
+    /* Default arrow char, we will rotate */
+}
+
+/* Positions relative to absolute canvas or relative to circles? 
+   The wrapper doesn't help much with absolute positioning of circles unless wrapper itself is positioned.
+   Since I removed wrapper positioning in favor of circle positioning, let's position arrows absolutely.
+*/
+.arrow-top-left {
+    top: 25%;
+    left: 25%;
+    transform: rotate(0deg);
+    /* ↘ points to center */
+}
+
+.arrow-top-right {
+    top: 25%;
+    right: 25%;
+    transform: rotate(-90deg);
+    /* ↙ points to center? No. ↘ rotated -90 is ↙ */
+}
+
+.arrow-top-right::before {
+    content: '↙';
+}
+
+.arrow-bottom-left {
+    bottom: 25%;
+    left: 25%;
+    transform: rotate(0deg);
+}
+
+.arrow-bottom-left::before {
+    content: '↗';
+}
+
+.arrow-bottom-right {
+    bottom: 25%;
+    right: 25%;
+    transform: rotate(0deg);
+}
+
+.arrow-bottom-right::before {
+    content: '↖';
+}
+
+
+/* Footer */
+.areas-footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 1rem;
+}
+
+.areas-next-btn {
+    background-color: #3aabd8;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(58, 171, 216, 0.3);
+}
+
+.areas-next-btn:hover {
+    background-color: #2e9cc4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(58, 171, 216, 0.4);
+}
+
+/* Chat FAB */
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #3aabd8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 50;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .areas-diagram {
+        height: auto;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+
+    .central-box {
+        position: static;
+        transform: none;
+        order: -1;
+    }
+
+    .support-area-circle {
+        position: static;
+        transform: none !important;
+        width: 180px;
+        height: 180px;
+    }
+
+    .connection-arrow {
+        display: none;
+    }
+}

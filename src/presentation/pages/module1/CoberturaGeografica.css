@@ -1,0 +1,179 @@
+.cobertura-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #E8E8E8;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    overflow-y: auto;
+}
+
+.cobertura-title-pill {
+    background-color: #2FBCEB;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 800;
+    text-align: center;
+    margin: 2rem auto 0.5rem auto;
+    width: fit-content;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cobertura-subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cobertura-content {
+    display: flex;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem 2rem;
+    flex: 1;
+}
+
+/* Info Cards */
+.info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.info-card {
+    background: white;
+    border: 2px solid #87CEEB;
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    margin-bottom: 0.5rem;
+}
+
+.card-title {
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+}
+
+.card-text {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Map Container */
+.map-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.map-base {
+    max-width: 100%;
+    max-height: 500px;
+    height: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.map-overlay {
+    position: absolute;
+    max-width: 100%;
+    max-height: 500px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.map-overlay.visible {
+    opacity: 1;
+}
+
+/* Region Labels */
+.region-label {
+    position: absolute;
+    background: rgba(47, 188, 235, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.label-region-1 {
+    top: 30%;
+    right: 15%;
+}
+
+.label-region-2 {
+    top: 30%;
+    left: 15%;
+}
+
+.cobertura-footer {
+    margin-top: auto;
+    padding: 1rem 2rem 2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cobertura-next-btn {
+    background-color: #2FBCEB;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+    min-width: 150px;
+}
+
+.cobertura-next-btn:hover:not(.disabled) {
+    background-color: #25aae0;
+}
+
+.cobertura-next-btn.disabled {
+    background-color: #9E9E9E;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .cobertura-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-cards {
+        flex-direction: row;
+        width: 100%;
+        max-width: 600px;
+    }
+}

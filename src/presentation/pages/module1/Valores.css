@@ -1,0 +1,306 @@
+.valores-container {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #e6f3f8 60%, #e0f7fa 100%);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Title pill - centered, clean */
+.valores-title-pill {
+    background: linear-gradient(90deg, #2FBCEB 60%, #25aae0 100%);
+    color: white;
+    padding: 0.5rem 2.5rem;
+    border-radius: 50px;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 800;
+    text-align: center;
+    margin: 0.5rem auto 0.4rem auto;
+    width: fit-content;
+    box-shadow: 0 4px 14px rgba(47, 188, 235, 0.22);
+    display: block;
+    border: none;
+    letter-spacing: 0.02em;
+    animation: pillSlideIn 0.6s ease-out;
+}
+
+@keyframes pillSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.valores-content-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem 2vw 0.3rem 2vw;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 0;
+}
+
+.valores-grid {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    border-radius: 28px;
+    padding: 1.5rem 2vw;
+    box-shadow: 0 8px 32px rgba(47, 188, 235, 0.12);
+    border: 2px solid #b3e5fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    max-width: 900px;
+    width: 100%;
+    animation: gridFadeIn 0.7s ease-out 0.2s both;
+}
+
+@keyframes gridFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.valores-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+    width: 100%;
+}
+
+.bottom-row {
+    max-width: 66%;
+}
+
+.valor-card {
+    background: linear-gradient(135deg, #e8f8fd 40%, #c3ecfa 100%);
+    border: 2px solid #2FBCEB;
+    border-radius: 20px;
+    padding: 0.8rem 0.6rem 0.6rem 0.6rem;
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+    box-shadow: 0 4px 16px rgba(47, 188, 235, 0.10);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    animation: cardPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.valor-card:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.valor-card:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.valor-card:nth-child(3) {
+    animation-delay: 0.35s;
+}
+
+.bottom-row .valor-card:nth-child(1) {
+    animation-delay: 0.45s;
+}
+
+.bottom-row .valor-card:nth-child(2) {
+    animation-delay: 0.55s;
+}
+
+@keyframes cardPopIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.valor-card:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 12px 32px rgba(47, 188, 235, 0.25);
+    border-color: #25aae0;
+    background: linear-gradient(135deg, #d0f0fc 40%, #a8e4f8 100%);
+}
+
+.valor-card.active {
+    transform: scale(1.07);
+    box-shadow: 0 0 0 4px rgba(47, 188, 235, 0.18), 0 12px 36px rgba(47, 188, 235, 0.30);
+    border-color: #1a8fc7;
+    background: linear-gradient(135deg, #b3e8fc 20%, #7dd3f5 60%, #d4c4fb 100%);
+    z-index: 2;
+    animation: cardGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes cardGlow {
+    0% {
+        box-shadow: 0 0 0 4px rgba(47, 188, 235, 0.15), 0 12px 36px rgba(47, 188, 235, 0.25);
+    }
+
+    100% {
+        box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.2), 0 12px 36px rgba(99, 102, 241, 0.20);
+    }
+}
+
+.valor-card.active .valor-title {
+    color: #1346a3;
+}
+
+.valor-card.active .valor-icon {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 12px rgba(47, 188, 235, 0.25);
+}
+
+.valor-icon {
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(47, 188, 235, 0.12);
+}
+
+.valor-icon-anim {
+    animation: valorPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes valorPulse {
+    0% {
+        transform: scale(1) rotate(-5deg);
+    }
+
+    50% {
+        transform: scale(1.12) rotate(5deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(-5deg);
+    }
+}
+
+.valor-title {
+    color: #1a7fa8;
+    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.01em;
+}
+
+.valor-text {
+    color: #226b8e;
+    font-size: clamp(0.72rem, 0.9vw, 0.85rem);
+    line-height: 1.4;
+    font-weight: 500;
+    padding: 0 0.2rem;
+}
+
+.valores-footer {
+    width: 100%;
+    padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.fab-btn,
+.valores-next-btn {
+    background: linear-gradient(135deg, #e0f7fa 60%, #2FBCEB 100%);
+    color: #226b8e;
+    border: none;
+    border-radius: 25px;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(47, 188, 235, 0.10);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 0.5rem;
+}
+
+.fab-btn:disabled,
+.valores-next-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.fab-btn:hover:enabled,
+.valores-next-btn:hover:enabled {
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 8px 22px rgba(47, 188, 235, 0.22);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .valores-content-wrapper {
+        padding: 0.3rem 0.8rem;
+    }
+
+    .valores-grid {
+        padding: 1rem 0.8rem;
+    }
+
+    .valores-row {
+        gap: 0.6rem;
+    }
+
+    .bottom-row {
+        max-width: 100%;
+    }
+
+    .valor-card {
+        min-width: 100px;
+    }
+
+    .valores-footer {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .valores-title-pill {
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .valores-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bottom-row {
+        max-width: 100%;
+    }
+
+    .valor-card {
+        max-width: 85%;
+    }
+}

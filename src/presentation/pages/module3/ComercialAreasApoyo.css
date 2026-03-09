@@ -1,0 +1,341 @@
+.comercial-areas-apoyo-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    padding-top: 110px;
+    box-sizing: border-box;
+}
+
+.comercial-areas-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+/* Title Section */
+.areas-title-section {
+    text-align: center;
+}
+
+.areas-main-title {
+    background-color: #3aabd8;
+    color: white;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: 700;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    margin: 0 0 0.5rem 0;
+    display: inline-block;
+}
+
+.areas-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Diagram Container */
+.areas-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Central Box */
+.central-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #3aabd8 0%, #2e9cc4 100%);
+    color: white;
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(58, 171, 216, 0.4);
+    z-index: 5;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    min-width: 300px;
+}
+
+/* Support Area Circles */
+.support-area-circle {
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border: 3px solid #3aabd8;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.support-area-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(58, 171, 216, 0.3);
+    border-color: #2e9cc4;
+}
+
+.support-area-circle.selected {
+    background-color: #b8e6f5;
+    border-color: #2e9cc4;
+    transform: scale(1.1);
+    z-index: 20;
+}
+
+/* Positioning - Similar to layout but adjusted for 5 items */
+.support-area-circle.top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.support-area-circle.top.selected {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.support-area-circle.right {
+    top: 40%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.support-area-circle.right.selected {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.support-area-circle.bottom-right {
+    bottom: 20px;
+    right: 15%;
+}
+
+.support-area-circle.bottom-left {
+    bottom: 20px;
+    left: 15%;
+}
+
+.support-area-circle.left {
+    top: 40%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.support-area-circle.left.selected {
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Area Icon and Name */
+.area-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+}
+
+.area-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.area-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Area Description */
+.area-description {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.area-description p {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+
+/* Connection Arrows */
+.connection-arrow {
+    position: absolute;
+    color: #3aabd8;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0.6;
+}
+
+.arrow-top {
+    top: 195px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    /* Pointing down to center */
+}
+
+.arrow-top::before {
+    content: '↑';
+}
+
+.arrow-right {
+    top: 40%;
+    right: 210px;
+    transform: translateY(-50%) rotate(-90deg);
+    /* Pointing left to center */
+}
+
+.arrow-right::before {
+    content: '↑';
+}
+
+.arrow-bottom-right {
+    bottom: 180px;
+    right: 32%;
+    transform: rotate(-45deg);
+    /* Pointing up-left to center */
+}
+
+.arrow-bottom-right::before {
+    content: '↑';
+}
+
+.arrow-bottom-left {
+    bottom: 180px;
+    left: 32%;
+    transform: rotate(45deg);
+    /* Pointing up-right to center */
+}
+
+.arrow-bottom-left::before {
+    content: '↑';
+}
+
+.arrow-left {
+    top: 40%;
+    left: 210px;
+    transform: translateY(-50%) rotate(90deg);
+    /* Pointing right to center */
+}
+
+.arrow-left::before {
+    content: '↑';
+}
+
+/* Footer */
+.areas-footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 1rem;
+}
+
+.areas-next-btn {
+    background-color: #3aabd8;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(58, 171, 216, 0.3);
+}
+
+.areas-next-btn:hover {
+    background-color: #2e9cc4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(58, 171, 216, 0.4);
+}
+
+/* Chat FAB */
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #3aabd8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 50;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .areas-diagram {
+        height: auto;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+
+    .central-box {
+        position: static;
+        transform: none;
+        order: -1;
+        /* Keep at top or modify order */
+    }
+
+    .support-area-circle {
+        position: static;
+        transform: none !important;
+        width: 160px;
+        height: 160px;
+    }
+
+    .connection-arrow {
+        display: none;
+    }
+}

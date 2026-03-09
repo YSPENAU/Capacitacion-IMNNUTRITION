@@ -1,0 +1,159 @@
+.comercial-intro-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    padding-top: 110px;
+    box-sizing: border-box;
+}
+
+.comercial-intro-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    gap: 2rem;
+}
+
+/* Layout */
+.comercial-intro-left {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.comercial-intro-right {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Title Box */
+.comercial-title-box {
+    background-color: #3aabd8;
+    border-radius: 50px;
+    padding: 2rem 3rem;
+    box-shadow: 0 6px 20px rgba(58, 171, 216, 0.4);
+}
+
+.comercial-title {
+    color: white;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Logo */
+.comercial-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+}
+
+.comercial-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+/* Description */
+.comercial-description {
+    max-width: 800px;
+    text-align: center;
+}
+
+.comercial-description p {
+    font-size: 1.15rem;
+    color: #333;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Start Button */
+.comercial-start-btn {
+    background-color: #3aabd8;
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(58, 171, 216, 0.3);
+    margin-top: 1rem;
+}
+
+.comercial-start-btn:hover {
+    background-color: #2e9cc4;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(58, 171, 216, 0.4);
+}
+
+/* Chat FAB */
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #3aabd8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 50;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .comercial-intro-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .comercial-title {
+        font-size: clamp(1.3rem, 2.8vw, 2rem);
+    }
+
+    .comercial-logo-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .comercial-description p {
+        font-size: 1rem;
+    }
+
+    .comercial-start-btn {
+        font-size: 1rem;
+        padding: 0.9rem 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .comercial-title-box {
+        padding: 1.5rem 2rem;
+    }
+
+    .comercial-title {
+        font-size: 1.5rem;
+    }
+
+    .comercial-logo-container {
+        width: 150px;
+        height: 150px;
+    }
+}

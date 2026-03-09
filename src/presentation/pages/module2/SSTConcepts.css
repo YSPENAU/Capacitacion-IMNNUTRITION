@@ -1,0 +1,240 @@
+.sst-concepts-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #F0F8FF;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+/* Inherit wrapper */
+.sst-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Title */
+.concepts-title {
+    background-color: #2FBCEB;
+    color: white;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: 800;
+    text-align: center;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(47, 188, 235, 0.3);
+    animation: fadeInDown 0.6s ease-out;
+    line-height: 1.2;
+}
+
+.concepts-intro-text {
+    text-align: center;
+    max-width: 900px;
+    margin-bottom: 2rem;
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+}
+
+/* Grid Layout */
+.concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.concept-card {
+    background: #EAECEE;
+    /* Default greyish */
+    border: 2px solid #BDC3C7;
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.concept-card.unlocked {
+    background: white;
+    border-color: #2FBCEB;
+    /* Highlight border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.concept-card.locked {
+    opacity: 0.6;
+    pointer-events: none;
+    /* Disable interaction */
+    filter: grayscale(100%);
+}
+
+.concept-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.concept-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #333;
+    margin: 0;
+}
+
+.concept-icon {
+    font-size: 1.8rem;
+}
+
+.concept-def {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    /* Pushes button down */
+}
+
+.view-example-btn {
+    background: #BDC3C7;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: auto;
+    transition: all 0.3s;
+}
+
+.concept-card.unlocked .view-example-btn {
+    background: #2FBCEB;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(47, 188, 235, 0.3);
+}
+
+.concept-card.unlocked .view-example-btn:hover {
+    background: #25aae0;
+    transform: translateY(-2px);
+}
+
+/* Footer Info */
+.concepts-footer {
+    max-width: 900px;
+    background-color: #2FBCEB;
+    color: white;
+    padding: 1.5rem 3rem;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(47, 188, 235, 0.4);
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.sst-next-btn.disabled {
+    background-color: #BDC3C7;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Modal Specifics */
+.concepts-modal {
+    max-width: 800px;
+    background-color: transparent;
+    /* Use transparent if image handles bg */
+    box-shadow: none;
+    /* Reset shadow if needed */
+    padding: 0;
+    border: none;
+    overflow: hidden;
+}
+
+.modal-content.concepts-modal {
+    background: white;
+    /* Restore white bg for safety */
+    padding: 0;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.modal-image-container {
+    width: 100%;
+    /* Max height constraint to fit screen */
+    max-height: 80vh;
+    overflow: hidden;
+    position: relative;
+    background: #f9f9f9;
+}
+
+.example-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Close button inside modal image area usually better, but here we put it top right of modal content */
+.modal-close-btn {
+    z-index: 10;
+    color: #333;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.modal-footer-action {
+    padding: 1.5rem;
+    text-align: center;
+    background: white;
+}
+
+.continue-btn {
+    background-color: #2FBCEB;
+    color: white;
+    border: none;
+    padding: 0.8rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(47, 188, 235, 0.4);
+    transition: transform 0.2s;
+}
+
+.continue-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .concepts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .concepts-grid {
+        grid-template-columns: 1fr;
+    }
+}

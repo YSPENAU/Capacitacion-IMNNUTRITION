@@ -1,0 +1,289 @@
+.marcas-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #E8E8E8;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    overflow-y: auto;
+}
+
+.marcas-title-pill {
+    background-color: #2FBCEB;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 800;
+    text-align: center;
+    margin: 2rem auto 0.5rem auto;
+    width: fit-content;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.marcas-subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Brands Diagram */
+.brands-diagram {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.connection-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.brand-circle {
+    position: absolute;
+    width: clamp(140px, 40vw, 200px);
+    height: clamp(140px, 40vw, 200px);
+    border-radius: 50%;
+    background: white;
+    border: 3px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 2;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.brand-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.brand-circle.active {
+    width: clamp(200px, 60vw, 300px);
+    height: clamp(200px, 60vw, 300px);
+    z-index: 10;
+}
+
+.brand-circle.viewed::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #51CF66;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Brand Positions */
+.brand-circle.center-top {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.brand-circle.center-top:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.brand-circle.center-top.active {
+    transform: translateX(-50%);
+}
+
+.brand-circle.left {
+    top: 250px;
+    left: 80px;
+}
+
+.brand-circle.right {
+    top: 250px;
+    right: 80px;
+}
+
+.brand-circle.bottom {
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.brand-circle.bottom:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.brand-circle.bottom.active {
+    transform: translateX(-50%);
+}
+
+/* Brand Content */
+.brand-logo {
+    max-width: 120px;
+    max-height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.brand-details {
+    text-align: center;
+    max-width: 160px;
+}
+
+.brand-name {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0.3rem 0;
+    line-height: 1.2;
+}
+
+.brand-year {
+    font-size: 0.7rem;
+    color: #666;
+    margin: 0;
+}
+
+.brand-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.brand-info-text {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* Arrow Indicators */
+.arrow-indicator {
+    position: absolute;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    color: #D3D3D3;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.left-arrow {
+    top: 330px;
+    left: 150px;
+}
+
+.bottom-arrow {
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+}
+
+.marcas-footer {
+    margin-top: auto;
+    padding: 1rem 2rem 2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.marcas-next-btn {
+    background-color: #2FBCEB;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.marcas-next-btn:hover:not(.disabled) {
+    background-color: #25aae0;
+}
+
+.marcas-next-btn.disabled {
+    background-color: #9E9E9E;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .brands-diagram {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1rem;
+        min-height: auto;
+    }
+
+    .brand-circle {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: clamp(160px, 50vw, 220px) !important;
+        height: clamp(160px, 50vw, 220px) !important;
+    }
+
+    .brand-circle.active {
+        width: clamp(200px, 70vw, 280px) !important;
+        height: clamp(200px, 70vw, 280px) !important;
+    }
+
+    .connection-lines {
+        display: none;
+    }
+
+    .arrow-indicator {
+        display: none;
+    }
+
+    .marcas-footer {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .marcas-title-pill {
+        padding: 0.7rem 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .brand-circle {
+        width: clamp(130px, 60vw, 180px) !important;
+        height: clamp(130px, 60vw, 180px) !important;
+    }
+
+    .brand-logo {
+        max-width: 80px;
+        max-height: 50px;
+    }
+
+    .marcas-next-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+}

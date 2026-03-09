@@ -1,0 +1,138 @@
+.contabilidad-intro-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    padding-top: 80px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.contabilidad-intro-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.intro-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.intro-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.intro-title-box {
+    background-color: #3aabd8;
+    /* Blue color from screenshot */
+    color: white;
+    padding: 2.5rem 3rem;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(58, 171, 216, 0.3);
+    text-align: center;
+    min-width: 400px;
+}
+
+.intro-title-box h1 {
+    margin: 0;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.intro-image {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+}
+
+.intro-description {
+    font-size: 1.1rem;
+    color: #444;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    line-height: 1.5;
+}
+
+.intro-start-btn {
+    background-color: #3aabd8;
+    color: white;
+    border: none;
+    padding: 0.8rem 3rem;
+    border-radius: 5px;
+    /* SLightly rounded but rectangular as per design */
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(58, 171, 216, 0.3);
+    transition: all 0.3s ease;
+}
+
+.intro-start-btn:hover {
+    background-color: #2e9cc4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(58, 171, 216, 0.4);
+}
+
+/* Chat FAB */
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #3aabd8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 50;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .intro-header {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .intro-title-box {
+        min-width: auto;
+        padding: 2rem;
+    }
+
+    .intro-title-box h1 {
+        font-size: 1.8rem;
+    }
+
+    .intro-image {
+        width: 180px;
+        height: 180px;
+    }
+}

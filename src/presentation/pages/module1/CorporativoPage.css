@@ -1,0 +1,187 @@
+.corporativo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    overflow-y: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Reusing Header style if possible, or duplicated for independence */
+.corporativo-header {
+    width: 90%;
+    max-width: 1200px;
+    background: white;
+    height: 60px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    flex-shrink: 0;
+    z-index: 200;
+    position: relative;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 2rem;
+    z-index: 10;
+}
+
+.page-title-pill {
+    background-color: #3aabd8;
+    /* Teal/Blue */
+    color: white;
+    padding: 0.8rem 3rem;
+    border-radius: 50px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(58, 171, 216, 0.4);
+    display: inline-block;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 50vh;
+    /* Leave room for buttons */
+}
+
+.founders-image {
+    max-height: 100%;
+    max-width: 90%;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 4px solid #87ceeb;
+    /* Light blue border frame */
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    z-index: 100;
+}
+
+.nav-btn {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    max-width: 100%;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background-color: #32cd32;
+    /* Green */
+    color: white;
+}
+
+.nav-btn.locked {
+    background-color: #3aabd8;
+    /* Blue */
+    color: white;
+    /* Or maybe gray? Screenshot has them blueish */
+    opacity: 1;
+    /* Not dimmed? Just 'locked' state visual */
+}
+
+.nav-btn.disabled {
+    background-color: #888;
+    /* Gray for truly locked */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Chat bubble mockup */
+.chat-fab {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: #3aabd8;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .bottom-nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .nav-btn {
+        min-width: 160px;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .founders-image {
+        max-width: 95%;
+    }
+
+    .corporativo-header {
+        width: 95%;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title-pill {
+        padding: 0.6rem 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .bottom-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .nav-btn {
+        min-width: 80%;
+        font-size: 0.95rem;
+    }
+
+    .main-content {
+        max-height: none;
+    }
+
+    .chat-fab {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}

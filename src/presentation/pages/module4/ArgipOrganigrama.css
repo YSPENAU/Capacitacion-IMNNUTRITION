@@ -1,0 +1,209 @@
+.argip-organigrama-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    /* Light blue/grey matches Purpose page */
+    font-family: 'Inter', sans-serif;
+    padding-top: 110px;
+    box-sizing: border-box;
+}
+
+.argip-organigrama-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+/* Header Section */
+.org-header-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.org-title-pill {
+    background-color: #3babc5;
+    /* Cyan Blue */
+    color: white;
+    padding: 1.5rem 3rem;
+    border-radius: 50px;
+    /* Fully rounded pill */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(59, 171, 197, 0.3);
+    max-width: 800px;
+}
+
+.org-title-main {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.org-title-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.org-intro-text {
+    max-width: 900px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+/* Single Card Container */
+.org-single-card-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.argip-contact-card {
+    background: white;
+    border: 3px solid #3babc5;
+    border-radius: 20px;
+    padding: 2rem;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.card-top-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.card-photo-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #3babc5;
+    /* Cyan circle border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* OVERLAY Logic */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(59, 171, 197, 0.95);
+    /* Cyan overlay */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+    /* Match photo layout */
+}
+
+.card-photo-wrapper:hover .card-overlay {
+    opacity: 1;
+}
+
+.overlay-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.card-info {
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    width: 100%;
+}
+
+.card-role {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.2rem;
+}
+
+.card-name {
+    font-size: 1rem;
+    color: #555;
+    text-transform: uppercase;
+}
+
+/* Footer */
+.org-footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.org-next-btn {
+    background-color: #3babc5;
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(59, 171, 197, 0.3);
+    transition: all 0.3s ease;
+}
+
+.org-next-btn:hover {
+    background-color: #2e9cc4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(59, 171, 197, 0.4);
+}
+
+/* Chat FAB */
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #3babc5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 50;
+    color: white;
+}

@@ -1,0 +1,145 @@
+.marketing-intro-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    padding-top: 110px;
+    box-sizing: border-box;
+}
+
+.marketing-intro-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.intro-card-marketing {
+    background: white;
+    padding: 3rem 4rem;
+    border-radius: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    /* Soft shadow */
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header with Title and Image side-by-side */
+.intro-header-marketing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.intro-title-box-marketing {
+    background-color: #3babc5;
+    /* Cyan Blue Base */
+    padding: 2rem 3rem;
+    border-radius: 30px;
+    color: white;
+    box-shadow: 0 8px 20px rgba(59, 171, 197, 0.3);
+    text-align: left;
+    min-width: 300px;
+}
+
+.intro-title-box-marketing h1 {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.intro-image-marketing {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-image-marketing img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+}
+
+.intro-description-marketing {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-bottom: 2.5rem;
+}
+
+/* Button */
+.intro-start-btn-marketing {
+    background-color: #3babc5;
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 171, 197, 0.4);
+}
+
+.intro-start-btn-marketing:hover {
+    background-color: #2e9cc4;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(59, 171, 197, 0.5);
+}
+
+/* Chat FAB */
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #3babc5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 50;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .intro-header-marketing {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    .intro-title-box-marketing {
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .intro-card-marketing {
+        padding: 2rem;
+    }
+
+    .intro-title-box-marketing h1 {
+        font-size: clamp(1.3rem, 2.8vw, 2rem);
+    }
+}

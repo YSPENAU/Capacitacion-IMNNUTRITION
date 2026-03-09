@@ -1,0 +1,233 @@
+.mision-container {
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header Adjustments for dark background if needed, strictly keeping layout */
+.header-bar.white-header {
+    background: rgba(255, 255, 255, 0.9);
+    /* Semi-transparent white to ensure logo visibility */
+}
+
+.mision-title-pill {
+    background-color: #2FBCEB;
+    color: white;
+    padding: 0.8rem 3rem;
+    border-radius: 50px;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: bold;
+    text-align: center;
+    margin: 1.5rem auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    /* Ensure it overlays if needed */
+    z-index: 10;
+}
+
+.mision-content-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    min-height: 400px;
+    height: 100%;
+}
+
+.mision-card {
+    background: linear-gradient(135deg, #f0f4f8 60%, #e0f7fa 100%);
+    border-radius: 25px;
+    box-shadow: 0 8px 32px rgba(47,188,235,0.10);
+    transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.mision-card.animated {
+    animation: cardRevealAnim 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes cardRevealAnim {
+    0% { transform: scale(0.95) rotateY(0deg); opacity: 0.7; }
+    60% { transform: scale(1.08) rotateY(18deg); opacity: 1; }
+    100% { transform: scale(1) rotateY(0deg); opacity: 1; }
+}
+.mision-card.collapsed {
+    max-width: 500px;
+    width: 100%;
+    min-width: 320px;
+    min-height: 350px;
+    margin: 0 auto;
+}
+
+/* .mision-card.collapsed:hover {
+    transform: scale(1.02);
+} */
+
+.mision-card.revealed {
+    max-width: 700px;
+    width: 100%;
+    min-width: 320px;
+    min-height: 450px;
+    padding: 3rem;
+    cursor: default;
+    margin: 0 auto;
+    /* Once revealed, no pointer */
+}
+
+.card-collapsed-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.collapsed-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: #2FBCEB;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.mision-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-animate {
+    animation: iconPulse 1.2s infinite alternate;
+}
+
+@keyframes iconPulse {
+    0% { transform: scale(1) rotate(-8deg); }
+    60% { transform: scale(1.18) rotate(8deg); }
+    100% { transform: scale(1) rotate(-8deg); }
+}
+
+.click-instruction {
+    color: #3b9dd9;
+    font-size: 1.08rem;
+    position: absolute;
+    bottom: 20px;
+    font-weight: 600;
+    text-shadow: 0 2px 12px #e0f7fa;
+}
+
+.card-revealed-content p {
+    font-size: 1.22rem;
+    line-height: 1.7;
+    color: #226b8e;
+    text-align: center;
+    font-weight: 500;
+    padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+    text-shadow: 0 2px 12px #e0f7fa;
+}
+
+.mision-footer {
+    width: 100%;
+    padding: 1.2rem 2rem 0.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    box-shadow: none;
+    position: relative;
+    z-index: 10;
+}
+
+.fab-btn, .mision-next-btn {
+    background: linear-gradient(135deg, #e0f7fa 60%, #2FBCEB 100%);
+    color: #226b8e;
+    border: none;
+    border-radius: 25px;
+    padding: 0.7rem 2rem;
+    font-size: 1.08rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(47,188,235,0.10);
+    transition: all 0.2s;
+    margin: 0 0.5rem;
+}
+.fab-btn:disabled, .mision-next-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+.fab-btn:hover:enabled, .mision-next-btn:hover:enabled {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(47,188,235,0.18);
+}
+
+@media (max-width: 768px) {
+    .mision-content-wrapper {
+        padding: 1rem;
+    }
+
+    .mision-card.collapsed {
+        max-width: 90%;
+        min-height: 280px;
+    }
+
+    .mision-card.revealed {
+        max-width: 95%;
+        min-height: 350px;
+        padding: 2rem;
+    }
+
+    .card-revealed-content p {
+        font-size: 1.1rem;
+    }
+
+    .mision-footer {
+        padding: 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mision-title-pill {
+        padding: 0.6rem 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .mision-card.revealed {
+        padding: 1.5rem;
+    }
+
+    .card-revealed-content p {
+        font-size: 1rem;
+    }
+
+    .mision-icon {
+        font-size: 3.5rem;
+    }
+
+    .mision-next-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+}

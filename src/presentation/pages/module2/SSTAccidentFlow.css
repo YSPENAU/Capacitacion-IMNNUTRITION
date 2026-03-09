@@ -1,0 +1,304 @@
+.sst-accidents-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #F0F8FF;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+/* Inherit wrapper */
+.sst-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Title */
+.accidents-title {
+    background-color: #2FBCEB;
+    color: white;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: 800;
+    text-align: center;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(47, 188, 235, 0.3);
+    animation: fadeInDown 0.6s ease-out;
+    line-height: 1.2;
+}
+
+.accidents-intro-text {
+    text-align: center;
+    max-width: 900px;
+    margin-bottom: 3rem;
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+}
+
+/* Flow Container */
+.accidents-flow-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Align top so descriptions can grow down */
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 2rem;
+    position: relative;
+    padding: 0 20px;
+}
+
+.flow-step-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 180px;
+    /* Fixed width per step */
+}
+
+/* Connector */
+.flow-connector {
+    position: absolute;
+    top: 50px;
+    /* Center with circle */
+    right: -50%;
+    /* Extend to right */
+    width: 100%;
+    /* Spans full width of gap */
+    height: 2px;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adjust connector positioning needed because we are inside the wrapper */
+/* Actually, connector should be between wrappers. 
+   Simplification: Make wrapper width sufficient and connector is part of wrapper 
+   pointing to next sibling. 
+   Or use Flexbox gap and absolute positioning.
+*/
+
+/* Let's try: Wrappers are flex items. The connector is absolute on the right of the wrapper. */
+.flow-step-wrapper {
+    /* override */
+    position: relative;
+    z-index: 2;
+}
+
+/* We need to select the connector inside the wrapper and push it right */
+.flow-connector {
+    position: absolute;
+    top: 40px;
+    left: 60%;
+    /* Start from center-ish */
+    width: 140px;
+    /* Bridge the gap */
+    text-align: center;
+    z-index: 0;
+}
+
+.connector-label {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #777;
+    white-space: pre-wrap;
+    text-align: center;
+    line-height: 1.1;
+}
+
+.arrow-line {
+    width: 100%;
+    height: 3px;
+    background-color: #BDC3C7;
+    transition: background-color 0.5s;
+}
+
+.arrow-head {
+    position: absolute;
+    right: -5px;
+    top: -4px;
+    /* Adjust for unicode arrow vertical align */
+    font-size: 14px;
+    color: #BDC3C7;
+    transition: color 0.5s;
+}
+
+.flow-connector.active .arrow-line {
+    background-color: #555;
+    /* Darker grey when active? Or blue? Images show dark grey */
+}
+
+.flow-connector.active .arrow-head {
+    color: #555;
+}
+
+/* Circle */
+.flow-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #EAECEE;
+    /* Locked grey */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    cursor: default;
+    transition: all 0.4s ease;
+    border: 4px solid #BDC3C7;
+    z-index: 5;
+    position: relative;
+}
+
+.flow-circle img {
+    max-width: 60%;
+    max-height: 60%;
+    filter: grayscale(100%);
+    transition: filter 0.4s;
+}
+
+.flow-circle.unlocked {
+    background: white;
+    cursor: pointer;
+    border-color: #999;
+}
+
+.flow-circle.unlocked img {
+    filter: grayscale(0%);
+}
+
+.flow-circle.selected {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 5px rgba(47, 188, 235, 0.2);
+    border-color: #2FBCEB;
+}
+
+/* Step Title */
+.step-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    min-height: 2.5em;
+    /* Reserve 2 lines */
+    white-space: pre-wrap;
+}
+
+/* Description Bubble */
+.step-description {
+    background: #FFFAF0;
+    /* Light warmth or white */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 0.85rem;
+    color: #555;
+    text-align: center;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s;
+    position: absolute;
+    top: 150px;
+    /* Position below title */
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.step-description.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Connectors fix specific to layout index */
+/* We have 5 items. Item 4 connects to 5. Item 5 has no connector. */
+/* The map logic handles rendering connector conditionally */
+
+/* Footer Info */
+.accidents-footer {
+    max-width: 900px;
+    background-color: #2FBCEB;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(47, 188, 235, 0.4);
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 120px;
+    /* Push down to make room for descriptions */
+}
+
+.sst-next-btn.disabled {
+    background-color: #BDC3C7;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .accidents-flow-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flow-step-wrapper {
+        width: 100%;
+        margin-bottom: 2rem;
+        flex-direction: row;
+        /* Horizontal row for mobile step */
+        justify-content: flex-start;
+        padding-left: 20%;
+    }
+
+    .flow-connector {
+        /* Vertical line for mobile? */
+        display: none;
+        /* Hide complex connectors on mobile for simplicity */
+    }
+
+    .step-title {
+        text-align: left;
+        margin-left: 1rem;
+        min-height: auto;
+    }
+
+    .step-description {
+        position: static;
+        width: auto;
+        margin-left: 1rem;
+        transform: none;
+        opacity: 1;
+        /* Always show if selected, but maybe switch logic */
+        display: none;
+    }
+
+    .step-description.visible {
+        display: block;
+    }
+
+    .accidents-footer {
+        margin-top: 2rem;
+    }
+}

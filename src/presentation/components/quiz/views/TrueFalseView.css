@@ -1,0 +1,87 @@
+.tf-container {
+    width: 100%;
+    max-width: 100%;
+}
+
+.tf-header-row {
+    display: grid;
+    grid-template-columns: 1fr 60px 60px;
+    gap: 10px;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #555;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.tf-row {
+    display: grid;
+    grid-template-columns: 1fr 60px 60px;
+    gap: 10px;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.tf-row:last-child {
+    border-bottom: none;
+}
+
+.tf-row span {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.tf-circle-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    background: white;
+    font-weight: bold;
+    color: #777;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 auto;
+}
+
+.tf-circle-btn:hover:not(:disabled) {
+    border-color: #3CA9D6;
+    color: #3CA9D6;
+    background-color: #f0f9fd;
+}
+
+.tf-circle-btn.selected {
+    background-color: #3CA9D6;
+    border-color: #3CA9D6;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(60, 169, 214, 0.3);
+}
+
+/* Feedback States */
+.tf-row.row-correct {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-radius: 8px;
+}
+
+.tf-row.row-incorrect {
+    background-color: rgba(244, 67, 54, 0.1);
+    border-radius: 8px;
+}
+
+.tf-row.row-correct .tf-circle-btn.selected {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.tf-row.row-incorrect .tf-circle-btn.selected {
+    background-color: #F44336;
+    border-color: #F44336;
+}

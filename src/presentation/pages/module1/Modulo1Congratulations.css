@@ -1,0 +1,88 @@
+.modulo1-congrats-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2FBCEB 0%, #51CF66 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.modulo1-congrats-card {
+    background: white;
+    border-radius: 30px;
+    padding: 4rem 3rem;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.trophy-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.congrats-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: #2FBCEB;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.congrats-message {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.congrats-submessage {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.return-dashboard-btn {
+    background: #2FBCEB;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.return-dashboard-btn:hover {
+    background: #25aae0;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}

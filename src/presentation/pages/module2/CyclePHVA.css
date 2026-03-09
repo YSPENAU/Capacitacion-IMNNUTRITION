@@ -1,0 +1,234 @@
+.phva-container {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    background-color: #F0F8FF;
+    /* Very light blue background */
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.phva-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Main Title Pill */
+.phva-main-title {
+    background-color: #2FBCEB;
+    color: white;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 800;
+    text-align: center;
+    padding: 1rem 4rem;
+    border-radius: 50px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 15px rgba(47, 188, 235, 0.3);
+    line-height: 1.2;
+    animation: fadeInDown 0.6s ease-out;
+}
+
+/* Diagram Area */
+.phva-diagram-area {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 600px;
+    /* Min height for absolute positioning context */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.phva-central-image img {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    animation: pulse 3s infinite ease-in-out;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+    z-index: 1;
+}
+
+/* Base Card Style */
+.phva-card {
+    position: absolute;
+    padding: 1.2rem;
+    border-radius: 20px;
+    max-width: 240px;
+    width: 90%;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+    animation: fadeIn 1s ease-out;
+    z-index: 2;
+}
+
+.phva-card:hover {
+    transform: scale(1.05);
+    z-index: 15;
+}
+
+.card-icon-small {
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    margin-bottom: 0.5rem;
+}
+
+.phva-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.phva-card p {
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+/* Specific Card Colors and Positions */
+
+/* Planear - Purple */
+.card-planear {
+    background-color: #A569BD;
+    /* Purple-ish */
+    border: 3px solid #8E44AD;
+    top: 5px;
+    left: 20px;
+}
+
+/* Hacer - Green */
+.card-hacer {
+    background-color: #A9DFBF;
+    /* Light Green */
+    border: 3px solid #27AE60;
+    color: #145A32;
+    /* Darker text for contrast on light green */
+    top: 5px;
+    right: 20px;
+}
+
+.card-hacer h3 {
+    color: #145A32;
+    /* Keep title white/contrasty? Or dark green? Check design. Design has white text usually.*/
+    text-shadow: none;
+}
+
+/* Actuar - Blue */
+.card-actuar {
+    background-color: #85C1E9;
+    /* Sky blue */
+    border: 3px solid #3498DB;
+    bottom: 5px;
+    left: 20px;
+}
+
+/* Verificar - Teal */
+.card-verificar {
+    background-color: #76D7C4;
+    /* Teal-ish */
+    border: 3px solid #1ABC9C;
+    bottom: 5px;
+    right: 20px;
+}
+
+
+/* Footer Action */
+.phva-action-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 4rem;
+    margin-top: 1rem;
+}
+
+.phva-next-btn {
+    background-color: #2FBCEB;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.phva-next-btn:hover {
+    background-color: #25aae0;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .phva-diagram-area {
+        height: auto;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .phva-central-image img {
+        width: 300px;
+    }
+
+    .phva-card {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100%;
+        max-width: 350px;
+        margin-bottom: 1rem;
+    }
+}

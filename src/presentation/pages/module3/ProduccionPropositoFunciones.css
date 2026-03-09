@@ -1,0 +1,189 @@
+.produccion-proposito-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+    padding-top: 110px;
+    box-sizing: border-box;
+}
+
+.produccion-proposito-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+/* Main Card */
+.proposito-main-card {
+    background: white;
+    border: 3px solid #3aabd8;
+    border-radius: 30px;
+    padding: 2.5rem;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Section */
+.proposito-icon-section {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.conveyor-icon {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Text Section */
+.proposito-text-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.proposito-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    text-align: left;
+}
+
+.proposito-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+}
+
+/* Functions Grid */
+.funciones-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.funcion-card {
+    background: white;
+    border: 2px solid #3aabd8;
+    border-radius: 15px;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.funcion-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(58, 171, 216, 0.3);
+}
+
+.funcion-icon {
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+}
+
+.funcion-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Footer with Next Button */
+.proposito-footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 900px;
+}
+
+.proposito-next-btn {
+    background-color: #3aabd8;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(58, 171, 216, 0.3);
+}
+
+.proposito-next-btn:hover {
+    background-color: #2e9cc4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(58, 171, 216, 0.4);
+}
+
+/* Chat FAB */
+.chat-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #3aabd8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 50;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .proposito-main-card {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .proposito-title {
+        font-size: 1.2rem;
+    }
+
+    .proposito-description {
+        font-size: 0.95rem;
+    }
+
+    .funciones-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .funcion-title {
+        font-size: 0.75rem;
+    }
+
+    .proposito-next-btn {
+        font-size: 1rem;
+        padding: 0.7rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .funciones-grid {
+        grid-template-columns: 1fr;
+    }
+}
